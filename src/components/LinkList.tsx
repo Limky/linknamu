@@ -25,7 +25,7 @@ export default function LinkList({ links }: { links: LinkItem[] }) {
   };
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-4">
       {links.map((link) => (
         <li key={link.id}>
           <LinkCard link={link} clickCount={counts ? counts[link.id] ?? 0 : undefined} onClick={recordClick} />

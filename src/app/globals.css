@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    min-height: 100dvh;
+    background-attachment: fixed;
+    background-image: radial-gradient(120% 80% at 50% 0%, #fffaf3 0%, transparent 60%),
+      linear-gradient(170deg, #fdf8f1 0%, #fcecdd 55%, #fbdcc6 100%);
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+
+  .dark body {
+    background-image: radial-gradient(120% 80% at 50% 0%, #2e241e 0%, transparent 60%),
+      linear-gradient(170deg, #1d1714 0%, #221a16 55%, #2a1e18 100%);
+  }
+}

@@ -5,11 +5,11 @@ import LinkCard from "@/components/LinkCard";
 import type { LinkItem } from "@/data/profile";
 
 export default function LinkList({ links }: { links: LinkItem[] }) {
-  // null이면 클릭 집계를 쓸 수 없는 상태
-  const [counts, setCounts] = useState<Record<string, number> | null>(null);
+  // 받기 전에는 빈 객체라 모두 0회로 표시, null이면 클릭 집계를 쓸 수 없는 상태
+  const [counts, setCounts] = useState<Record<string, number> | null>({});
 
   useEffect(() => {
-    fetch("/api/click")
+    fetch("/api/click", { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => setCounts(data?.counts ?? null))
       .catch(() => setCounts(null));
